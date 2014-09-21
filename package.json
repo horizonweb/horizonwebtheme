@@ -1,0 +1,18 @@
+{
+  "name": "horizonweb",
+  "description": "horizonweb theme based on botstrap an HTML5",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bhaaveen9/horizonwebtheme.git"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.4",
+    "grunt-contrib-cssmin": "latest",
+    "grunt-contrib-imagemin": "^0.8.1",
+    "grunt-contrib-jshint": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest",
+    "jshint-stylish": "latest"
+  }
+}
