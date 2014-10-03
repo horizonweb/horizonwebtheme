@@ -45,6 +45,10 @@ function horizonweb_setup() {
 		'primary' => __( 'Primary Menu', 'horizonweb' ),
 	) );
 
+	register_nav_menus( array(
+		'secondary' => __( 'Secondary Menu', 'horizonweb' ),
+	) );
+
 	/*
 	 * Switch default core markup for search form, comment form, and comments
 	 * to output valid HTML5.
@@ -92,19 +96,58 @@ add_action( 'widgets_init', 'horizonweb_widgets_init' );
  * Enqueue scripts and styles.
  */
 function horizonweb_scripts() {
-	wp_enqueue_style( 'horizonweb-style', get_stylesheet_uri() );
-	wp_enqueue_style( 'horizonweb-common-style', get_stylesheet_uri() . '/css/common.css', array(), '20140921', true );
+	wp_enqueue_style( 'horizonweb-googlewebfont', 'http://fonts.googleapis.com/css?family=Roboto:700,500,900,400,300|Raleway:400,300,700,800,500');
+	wp_enqueue_style( 'horizonweb-common', get_template_directory_uri() . '/src/css/common.css', array(), '20140921' );
+	wp_enqueue_style( 'horizonweb', get_stylesheet_uri() );
+    wp_enqueue_style( 'horizonweb-bootstrap', get_template_directory_uri() . '/src/css/bootstrap.css', array(), '20140921' );
+    wp_enqueue_style( 'horizonweb-responsive', get_template_directory_uri() . '/src/css/responsive.css', array(), '20140921' );
+    
+	wp_enqueue_script( 'horizonweb-navigation', get_template_directory_uri() . '/src/js/navigation.js', array(), '20140921', true );
+	wp_enqueue_script( 'horizonweb-skip-link-focus-fix', get_template_directory_uri() . '/src/js/skip-link-focus-fix.js', array(), '20140921', true );
+    wp_enqueue_script( 'horizonweb-bootstrap-js', get_template_directory_uri() . '/src/js/bootstrap.js', array(), '20140921', true );
+    wp_enqueue_script( 'horizonweb-main-js', get_template_directory_uri() . '/src/js/main.js', array(), '20140921', true );
+    wp_enqueue_script( 'horizonweb-modernizr', get_template_directory_uri() . '/src/js/modernizr-2.6.2.min.js', array(), '20140921', false );
 
 
-	wp_enqueue_script( 'horizonweb-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20140921', true );
+//     if (!is_admin()) add_action("wp_enqueue_scripts", "my_jquery_enqueue", 11);
+// function my_jquery_enqueue() {
+//    wp_deregister_script('jquery');
+//    wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js", false, '1.10.2');
+//    wp_enqueue_script('jquery');
+// }
 
-	wp_enqueue_script( 'horizonweb-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20140921', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'horizonweb_scripts' );
+
+
+// function add_jquery_ui() {
+//     wp_enqueue_script( 'jquery-ui-core' );
+//     wp_enqueue_script( 'jquery-ui-widget' );
+//     wp_enqueue_script( 'jquery-ui-mouse' );
+//     wp_enqueue_script( 'jquery-ui-accordion' );
+//     wp_enqueue_script( 'jquery-ui-autocomplete' );
+//     wp_enqueue_script( 'jquery-ui-slider' );
+//     wp_enqueue_script( 'jquery-ui-tabs' );
+//     wp_enqueue_script( 'jquery-ui-sortable' );
+//     wp_enqueue_script( 'jquery-ui-draggable' );
+//     wp_enqueue_script( 'jquery-ui-droppable' );
+//     wp_enqueue_script( 'jquery-ui-datepicker' );
+//     wp_enqueue_script( 'jquery-ui-resize' );
+//     wp_enqueue_script( 'jquery-ui-dialog' );
+//     wp_enqueue_script( 'jquery-ui-button' );
+// }
+// add_action( 'wp_enqueue_scripts', 'add_jquery_ui' );
+
+
+	function add_jquery() {
+    wp_enqueue_script( 'jquery' );
+}
+add_action( 'wp_enqueue_scripts', 'add_jquery' );
+
 
 /**
  * Implement the Custom Header feature.
@@ -152,10 +195,7 @@ add_action('wp_print_styles', 'horizonweb_enqueue_styles');
 function horizonweb_enqueue_styles(){
   global $is_iphone;
   if( $is_iphone ){
-    wp_enqueue_style('iphone-css', get_stylesheet_directory_uri() . 'css/iphone-ipad.css' );
-  }
-  else{
-    wp_enqueue_style('common-css', get_stylesheet_directory_uri() . '/style.css' );
+    wp_enqueue_style('iphone', get_stylesheet_directory_uri() . 'src/css/iphone-ipad.css' );
   }
 }
 

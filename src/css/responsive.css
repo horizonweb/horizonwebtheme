@@ -1,0 +1,56 @@
+/*  #Mobile (Portrait)
+================================================== */
+@media only screen and (max-width: 480px) and (min-width: 240px) {
+
+}
+
+
+/* #Mobile (Landscape)
+================================================== */
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+	
+}
+
+
+/*  #Mobile (Portrait / Landscape)
+================================================== */
+@media only screen and (max-width: 768px) {
+
+}
+
+
+/* #Tablet devices (Portrait / Landscape)
+================================================== */
+@media only screen and (min-width: 769px) and (max-width: 959px) {
+
+}
+
+
+/* #Desktop and Tablet (Portrait / Landscape)
+================================================== */
+@media only screen and (min-width: 769px) {
+
+	.primary-navigation {
+		display: none;
+	}
+
+}
+
+/* #Desktop
+================================================== */
+@media only screen and (max-width: 960px) {
+
+}
+
+
+/* #Tablet/Mobile devices
+================================================== */
+@media only screen and (max-width: 1023px) {
+
+}
+
+
+/* #Desktop
+================================================== */
+@media only screen and (min-width: 1024px) {}
+

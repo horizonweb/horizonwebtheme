@@ -24,7 +24,8 @@ module.exports = function(grunt) {
                 },
                 build: {
                   files: {
-                    'js/bootstrap.min.js' : 'src/js/bootstrap.js'
+                    'js/bootstrap.min.js' : 'src/js/bootstrap.js',
+                    'js/main.min.js' : 'src/js/main.js'
                   }
                 }
               },
@@ -51,7 +52,10 @@ module.exports = function(grunt) {
                 build: {
                   files: {
                     'css/bootstrap.min.css': 'src/css/bootstrap.css',
-                    'css/common.min.css' : 'src/css/common.css'
+                    'css/common.min.css' : 'src/css/common.css',
+                    'css/iphone-ipad.min.css' : 'src/css/iphone-ipad.css',
+                    'style.css' : 'src/css/style.css',
+                    'css/responsive.min.css' : 'src/css/responsive.css',
                   }
                 }
               },
@@ -94,6 +98,10 @@ module.exports = function(grunt) {
                 scripts: {
                   files: 'src/**/*.js',
                   tasks: ['uglify']
+                },
+
+                options: {
+                  livereload: true
                 }
               }
 
@@ -101,6 +109,18 @@ module.exports = function(grunt) {
 
 
   });
+
+
+  // ===========================================================================
+  // LOAD GRUNT PLUGINS ========================================================
+  // ===========================================================================
+  // we can only load these if they are in our package.json
+  // make sure you have run npm install so our app can find these
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+
 
   // ===========================================================================
   // CREATE TASKS ==============================================================
@@ -123,20 +143,5 @@ module.exports = function(grunt) {
   // $ grunt dev
   // $ grunt production
   // $ grunt watch
-
-
-
-
-
-
-  // ===========================================================================
-  // LOAD GRUNT PLUGINS ========================================================
-  // ===========================================================================
-  // we can only load these if they are in our package.json
-  // make sure you have run npm install so our app can find these
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-contrib-imagemin');
-  grunt.loadNpmTasks('grunt-contrib-watch');
 
 };

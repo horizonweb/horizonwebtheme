@@ -25,6 +25,7 @@
 /*--------------------------------------------------------------
 1.0 Reset
 --------------------------------------------------------------*/
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -126,7 +127,7 @@ input,
 select,
 textarea {
 	color: #404040;
-	font-family: sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-size: 16px;
 	font-size: 1.6rem;
 	line-height: 1.5;
@@ -233,11 +234,11 @@ hr {
 
 ul,
 ol {
-	margin: 0 0 1.5em 3em;
+	margin: 0 0 0em 0em;
 }
 
 ul {
-	list-style: disc;
+	list-style: none;
 }
 
 ol {
@@ -391,18 +392,19 @@ textarea {
 5.1 Links
 --------------------------------------------------------------*/
 a {
-	color: royalblue;
+	color: #009de3;
 }
 
 a:visited {
-	color: purple;
+	color: #006B9B;
 }
 
 a:hover,
 a:focus,
 a:active {
-	color: midnightblue;
+	color: #006B9B;
 }
+
 
 /*--------------------------------------------------------------
 5.2 Menus
@@ -418,6 +420,8 @@ a:active {
 	list-style: none;
 	margin: 0;
 	padding-left: 0;
+	float: right;
+	overflow: hidden;
 }
 
 .main-navigation li {
@@ -428,6 +432,34 @@ a:active {
 .main-navigation a {
 	display: block;
 	text-decoration: none;
+	margin: 3px 38px 0px;
+	text-transform: uppercase;
+	font-size: 0.9em;
+	color: #424242;
+	padding-bottom: 5px;
+}
+
+.main-navigation a:hover {
+	text-decoration: none;
+	color: #009de3;
+	border-bottom: 2px solid #009de3;
+}
+
+.main-navigation a.active {
+	color: #009de3;
+	border-bottom: 2px solid #009de3;
+}
+
+.main-navigation a:last-child {
+	margin-right: 0px;
+}
+
+.main-navigation a:hover {
+	-webkit-transition: none;
+	-moz-transition: none;
+	-o-transition: none;
+	transition: none;
+	opacity:1;
 }
 
 .main-navigation ul ul {
@@ -471,6 +503,8 @@ a:active {
 
 .main-navigation .current_page_item a,
 .main-navigation .current-menu-item a {
+	color: #009de3;
+	border-bottom: 2px solid #009de3;
 }
 
 /* Small menu */
