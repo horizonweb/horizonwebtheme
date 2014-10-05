@@ -84,6 +84,24 @@ module.exports = function(grunt) {
               },
 
 
+
+              // Stylus compiler----------------------------
+
+              stylus: {
+                compile: {
+                  options: {
+                    compress:true,
+                    paths: ['stylus'],
+                    import: [
+                      'nib/*'
+                    ]},
+                  files: {
+                    'css/source.css': 'src/css/source.styl', // 1:1 compile
+                  }
+                }
+              },
+
+
               // configure watch to auto update ------------------------------------------
               watch: {
 
@@ -106,8 +124,6 @@ module.exports = function(grunt) {
               }
 
 
-
-
   });
 
 
@@ -119,6 +135,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
+  grunt.loadNpmTasks('grunt-contrib-stylus');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
 
@@ -129,10 +146,10 @@ module.exports = function(grunt) {
 
 
             // this task will only run the dev configuration
-            grunt.registerTask('dev', ['uglify:dev', 'cssmin:dev','imagemin:dev']);
+            grunt.registerTask('dev', ['uglify:dev', 'cssmin:dev','imagemin:dev','stylus:dev']);
 
             // only run production configuration
-            grunt.registerTask('production', ['uglify:production', 'cssmin:production','imagemin:production']);
+            grunt.registerTask('production', ['uglify:production', 'cssmin:production','imagemin:production','stylus:production']);
 
 
   // Run Commands
@@ -140,6 +157,7 @@ module.exports = function(grunt) {
   // $ grunt uglify
   // $ grunt cssmin
   // $ grunt imagemin
+  // $ grunt stylus
   // $ grunt dev
   // $ grunt production
   // $ grunt watch

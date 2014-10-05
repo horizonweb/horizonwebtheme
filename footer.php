@@ -8,16 +8,24 @@
  */
 ?>
 
-	</div><!-- #content -->
+<footer id="colophon" class="site-footer col-lg-12" role="contentinfo">
+		<img src="<?php bloginfo('template_directory'); ?>/images/horizonweb-logo-hologram.svg" width="116px" height="116px" alt="HorizonWeb" title="HorionWeb" onerror="this.onerror=null; this.src='<?php bloginfo('template_directory'); ?>/images/horizonweb-logo-hologram.png'" class="footer-logo">
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
+		<ul class="footer-social">
+			<li><a href="#" title="Facebook" class="fb"></a></li>
+			<li><a href="#" title="Twitter" class="tt"></a></li>
+			<li><a href="#" title="Pinterest" class="pt"></a></li>
+	 	</ul>
+
+	 	<div class="devider"></div>
+
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'horizonweb' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'horizonweb' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( __( 'Theme: %1$s by %2$s.', 'horizonweb' ), 'horizonweb', '<a href="http://horizonweb.in" rel="designer">Bhavin Gohil</a>' ); ?>
+		<span>&#169; 2014 <a href="<?php echo esc_url( __( 'http://www.horizonweb.in', 'horizonweb' ) ); ?>" target="_blank"><?php printf( __( 'Horizon web', 'horizonweb' ), 'horizonweb' ); ?></a>, All Rights Reserved.</span>
+			
+			
 		</div><!-- .site-info -->
+
 	</footer><!-- #colophon -->
-</div><!-- #page -->
 
 <?php wp_footer(); ?>
 

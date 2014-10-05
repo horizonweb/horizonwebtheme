@@ -32,7 +32,7 @@
 			<div class="search-social">
 				<div class="search">
 					<?php get_search_form(); ?>
-			 		<!-- <input type="text" name="q" placeholder="Search..." /> -->
+			 		<input type="text" name="q" placeholder="Search..." />
 		 		</div>
 
 		 		<ul class="top-social">
